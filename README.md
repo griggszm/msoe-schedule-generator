@@ -1,0 +1,1 @@
+# msoe-schedule-generator
