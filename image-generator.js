@@ -61,6 +61,12 @@ function increaseBy12Hours(time) {
     return time;
 }
 
+function getExactTimeFromHourMinute(time) {
+    var hour = time.substring(0, time.indexOf(":"));
+    var minute = time.substring(time.indexOf(":")+1, time.length);
+    return Number(hour) + (Number(minute) / 60);
+}
+
 function getFirstLastClassTime(data) {
     var earliestTime = 99;
     var latestTime = -1;
@@ -148,8 +154,8 @@ function drawEntry(canvas, entry, color, early, blockWidth, blockHeight) {
 function drawMeeting(canvas, meeting, text, text2, color, early, blockWidth, blockHeight) {
     for (var i = 0; i < meeting.day.length; i++) {
         var day = meeting.day.charAt(i);
-        var start = Number(meeting.startTime.substring(0, meeting.startTime.indexOf(":")));
-        var end = 1 + Number(meeting.endTime.substring(0, meeting.endTime.indexOf(":")));
+        var start = getExactTimeFromHourMinute(meeting.startTime);
+        var end = getExactTimeFromHourMinute(meeting.endTime);
         if(meeting['amOrPm'] === "PM") {
             start = increaseBy12Hours(start);
             end = increaseBy12Hours(end);

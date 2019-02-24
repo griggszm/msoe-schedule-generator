@@ -10,15 +10,131 @@
     <script src="index.js"></script>
     <script src="json-converter.js"></script>
     <script src="image-generator.js"></script>
+    <script src="class-parser.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <label for="input">Enter details: </label>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'autofill')">Autofill Classes</button>
+        <button class="tablinks" onclick="openTab(event, 'manual')">Manually Enter Classes</button>
+    </div>
+
+    <div id="autofill" class="tabcontent">
+        <label for="input">Enter details: </label>
+        <br>
+        <textarea rows="5" cols="50" id="input"></textarea>
+        <br>
+        <button id="submit">Submit</button>
+    </div>
+
+    <div id="manual" class="tabcontent">
+        <label for="classCode">Class code:</label>
+        <br>
+        <input type="text" id="classCode">
+        <label for="classCode">(example: SE 400)</label>
+        <br>
+        <br>
+        <label>Enter only as many meeting times for the class as you need to enter. The rest can be left blank.</label>
+        <br>
+        <br>
+
+        <label for="meeting1Day">Meeting Day:</label>
+        <br>
+        <input type="text" id="meeting1Day">
+        <label for="meeting1Day">(possible values: M, T, W, R, F)</label>
+        <br>
+        <label for="meeting1Time">Meeting Time:</label>
+        <br>
+        <input type="text" id="meeting1Time">
+        <label for="meeting1Time">(example: 9:00 AM - 10:00)</label>
+        <br>
+        <label for="meeting1Room">Meeting Room:</label>
+        <br>
+        <input type="text" id="meeting1Room">
+        <label for="meeting1Room">(example: S314)</label>
+        <br>
+        <hr>
+
+        <label for="meeting2Day">Meeting Day:</label>
+        <br>
+        <input type="text" id="meeting2Day">
+        <br>
+        <label for="meeting2Time">Meeting Time:</label>
+        <br>
+        <input type="text" id="meeting2Time">
+        <br>
+        <label for="meeting2Room">Meeting Room:</label>
+        <br>
+        <input type="text" id="meeting2Room">
+        <br>
+        <hr>
+
+        <label for="meeting3Day">Meeting Day:</label>
+        <br>
+        <input type="text" id="meeting3Day">
+        <br>
+        <label for="meeting3Time">Meeting Time:</label>
+        <br>
+        <input type="text" id="meeting3Time">
+        <br>
+        <label for="meeting3Room">Meeting Room:</label>
+        <br>
+        <input type="text" id="meeting3Room">
+        <br>
+        <hr>
+
+        <label for="meeting4Day">Meeting Day:</label>
+        <br>
+        <input type="text" id="meeting4Day">
+        <br>
+        <label for="meeting4Time">Meeting Time:</label>
+        <br>
+        <input type="text" id="meeting4Time">
+        <br>
+        <label for="meeting4Room">Meeting Room:</label>
+        <br>
+        <input type="text" id="meeting4Room">
+        <br>
+        <hr>
+
+        <label for="meeting5Day">Meeting Day:</label>
+        <br>
+        <input type="text" id="meeting5Day">
+        <br>
+        <label for="meeting5Time">Meeting Time:</label>
+        <br>
+        <input type="text" id="meeting5Time">
+        <br>
+        <label for="meeting5Room">Meeting Room:</label>
+        <br>
+        <input type="text" id="meeting5Room">
+        <br>
+        <hr>
+
+        <button id="add">Add class</button>
+    </div>
+
+    <label for="my_classes">Current classes:</label>
     <br>
-    <textarea id="input"></textarea>
+
+    <select id="my_classes" multiple="multiple">
+
+    </select>
     <br>
-    <button id="submit">Submit</button>
+    <button id="create_schedule">Create schedule</button>
+    <button id="clear">Clear all</button>
+
+
+
+
+
+
+
+
     <br>
     <canvas id="myCanvas" width="700" height="800"></canvas>
+
 
 </body>
 </html>

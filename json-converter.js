@@ -67,12 +67,13 @@ function parseSingleChunk(chunk) {
         meeting['time'] = lines[startIndex];
         startIndex++;
 
-
-        if(meeting['time'].includes("AM")) {
-            meeting['amOrPm'] = 'AM';
-        } else {
+        // assume AM unless given PM
+        if(meeting['time'].includes("PM")) {
             meeting['amOrPm'] = 'PM';
+        } else {
+            meeting['amOrPm'] = 'AM';
         }
+
         meeting['time'] = meeting['time'].replace("PM", "").replace("AM", "").replace(/ /g, "");
         meeting['startTime'] = meeting['time'].substring(0, meeting['time'].indexOf("-"));
         meeting['endTime'] = meeting['time'].substring(1+meeting['time'].indexOf("-"), meeting['time'].length);
