@@ -41,6 +41,9 @@ $(document).ready(function () {
     openTab(null, 'autofill')
 });
 
+/**
+ * Gets one of the manually entered meetings from the index page and clears entered values
+ */
 function getMeeting(num) {
     var meeting = createMeeting($('#meeting' + num + 'Day').val(), $('#meeting' + num + 'Time').val(), $('#meeting' + num + 'Room').val());
     $('#meeting' + num + 'Room').val("");
